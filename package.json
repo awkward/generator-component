@@ -1,0 +1,36 @@
+{
+  "name": "generator-component",
+  "version": "0.0.1",
+  "description": "Awkies Component Generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "tmw/generator-component",
+  "author": {
+    "name": "Tiemen Waterreus",
+    "email": "tiemen@tiemenwaterreus.com",
+    "url": "https://github.com/Tmw"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "underscore.string" : "*",
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

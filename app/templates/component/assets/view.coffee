@@ -1,4 +1,4 @@
-define '<%= componentNamespace() %>/assets/<%= componentName %>', ['courier', '<%= componentNamespace() %>/assets/<%= componentName %>.jade'], (Courier, template) ->
+define '<%= componentNamespace() %>/assets/<%= componentNameLower() %>', ['courier', '<%= componentNamespace() %>/assets/<%= componentNameLower() %>.jade'], (Courier, template) ->
   class <%= componentName %> extends Marionette.Layout
     template: template
 

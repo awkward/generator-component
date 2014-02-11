@@ -7,3 +7,6 @@ define '<%= componentNamespace() %>/controller', ['courier', '<%= componentNames
    		# do something with view
    		
    		console.log 'Route <%= componentName %> hit'
+
+   	stop: ->
+   		console.log 'tear down the <%= componentName %> controller'

@@ -71,7 +71,8 @@ var ComponentGenerator = yeoman.generators.Base.extend({
 
   componentNamespace: function(){
     var parts = this.componentRoot().split('/');
-    parts[0] = '';
+    parts.shift()
+    parts.shift()
     return parts.join('/');
   },
 

@@ -6,7 +6,7 @@ First of all: Include the following piece in your package.json
 
 ``` json
 "dependencies" :{
-	"generator-component": "git://github.com/awkward/generator-component.git#master"
+	"generator-component": "git+ssh://git@github.com:awkward/generator-component.git#master"
 }
 ```
 

@@ -1,13 +1,15 @@
-define '<%= componentNamespace() %>/module', ['courier', '<%= componentNamespace() %>/controller'], (Courier, <%= componentNameCapitalized() %>Controller) ->
-  <%= componentNameCapitalized() %> = Courier.module '<%= componentNameLower() %>'
+define '<%= componentNamespace() %>/module', ['courier', '<%= componentNamespace() %>/controller'], (Courier, <%= componentNameCamelCased() %>Controller) ->
+  <%= componentNameCamelCased() %> = Courier.module '<%= componentNameLowerCamelCased() %>', {
+    startWithParent: false
+  }
 
-  <%= componentNameCapitalized() %>.on 'start', (@options = {}) ->
-    @controller       = new <%= componentNameCapitalized() %>Controller(@options)
+  <%= componentNameCamelCased() %>.on 'start', (@options = {}) ->
+    @controller       = new <%= componentNameCamelCased() %>Controller(@options)
     @router           = new Marionette.AppRouter
                           controller: @controller
                           appRoutes:
                             '<%= componentNameLower() %>': 'start'
 
 
-  <%= componentNameCapitalized() %>.on 'stop', ->
+  <%= componentNameCamelCased() %>.on 'stop', ->
     @controller.stop()

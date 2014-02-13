@@ -80,20 +80,32 @@ var ComponentGenerator = yeoman.generators.Base.extend({
     return _s.capitalize(this.componentName);
   },
 
+  componentNameCamelCased: function(){
+    return this.componentNameCapitalized().replace(/(\_[a-z])/g, function($1) { 
+      return $1.toUpperCase().replace('_','');
+    });
+  },
+
+  componentNameLowerCamelCased: function(){
+    return this.componentNameLower().replace(/(\_[a-z])/g, function($1) { 
+      return $1.toUpperCase().replace('_','');
+    });
+  },
+
   app: function () {
     this.mkdir(this.componentRoot());
-    this.template('component/module.coffee',      this.componentRoot() + '/module.coffee');
-    this.template('component/component.json',     this.componentRoot() + '/component.json');
+    this.template('component/module.coffee',  this.componentRoot() + '/module.coffee');
+    this.template('component/component.json', this.componentRoot() + '/component.json');
 
     // Should we include a default view?
     if(this.shouldIncludeView){
       this.mkdir(this.componentRoot() + '/assets');
-      this.template('component/controller_with_view.coffee',  this.componentRoot() + '/controller.coffee');
-      this.template('component/assets/view.coffee',           this.componentRoot() + '/assets/' + this.componentNameLower() + '.coffee');
-      this.template('component/assets/template.jade',         this.componentRoot() + '/assets/' + this.componentNameLower() + '.jade');
+      this.template('component/controller_with_view.coffee', this.componentRoot() + '/controller.coffee');
+      this.template('component/assets/view.coffee',          this.componentRoot() + '/assets/' + this.componentNameLower() + '.coffee');
+      this.template('component/assets/template.jade',        this.componentRoot() + '/assets/' + this.componentNameLower() + '.jade');
     }
     else{
-      this.template('component/controller.coffee',  this.componentRoot() + '/controller.coffee');
+      this.template('component/controller.coffee', this.componentRoot() + '/controller.coffee');
     }
   },
 

@@ -1,5 +1,5 @@
 define '<%= componentNamespace() %>/assets/<%= componentNameLower() %>', ['courier', '<%= componentNamespace() %>/assets/<%= componentNameLower() %>.jade'], (Courier, template) ->
-  class <%= componentName %> extends Marionette.Layout
+  class <%= componentNameCamelCased() %> extends Marionette.Layout
     template: template
 
     events:

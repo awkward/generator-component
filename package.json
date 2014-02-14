@@ -1,6 +1,6 @@
 {
   "name": "generator-component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Awkies Component Generator",
   "license": "MIT",
   "main": "app/index.js",

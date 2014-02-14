@@ -103,6 +103,7 @@ var ComponentGenerator = yeoman.generators.Base.extend({
       this.template('component/controller_with_view.coffee', this.componentRoot() + '/controller.coffee');
       this.template('component/assets/view.coffee',          this.componentRoot() + '/assets/' + this.componentNameLower() + '.coffee');
       this.template('component/assets/template.jade',        this.componentRoot() + '/assets/' + this.componentNameLower() + '.jade');
+      this.template('component/assets/stylesheet.sass',      this.componentRoot() + '/assets/' + this.componentNameLower() + '.sass');
     }
     else{
       this.template('component/controller.coffee', this.componentRoot() + '/controller.coffee');

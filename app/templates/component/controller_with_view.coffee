@@ -2,11 +2,11 @@ define '<%= componentNamespace() %>/controller', ['courier', '<%= componentNames
   class <%= componentNameCamelCased() %>Controller extends Marionette.Controller
     initialize: (@options = {}) ->
 
-   	start: ->
-   		view = new <%= componentNameCamelCased() %>View()
-   		# do something with view
-   		
-   		console.log 'Route <%= componentName %> hit'
+    start: ->
+      view = new <%= componentNameCamelCased() %>View()
+      # do something with view
+      
+      console.log 'Route <%= componentName %> hit'
 
-   	stop: ->
-   		console.log 'tear down the <%= componentName %> controller'
+    stop: ->
+      console.log 'tear down the <%= componentName %> controller'

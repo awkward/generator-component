@@ -38,7 +38,16 @@ var ComponentGenerator = yeoman.generators.Base.extend({
         name: 'includeView',
         message: 'Should I include a default view for this Component?',
         default: true
-      }];
+      },
+      {
+        when: function (resp){return resp.includeView},
+        type: 'confirm',
+        name: 'includeSass',
+        message: 'Would you like a Sass file with that?',
+        default: false
+      }
+
+    ];
     
     // Add some extra questions
     if(!this.componentName){
@@ -52,6 +61,7 @@ var ComponentGenerator = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.componentsLocation = props.componentsLocation;
       this.shouldIncludeView  = props.includeView;
+      this.shouldIncludeSass  = props.includeSass;
       
       if(props.componentName){
         this.componentName = props.componentName;
@@ -103,7 +113,10 @@ var ComponentGenerator = yeoman.generators.Base.extend({
       this.template('component/controller_with_view.coffee', this.componentRoot() + '/controller.coffee');
       this.template('component/assets/view.coffee',          this.componentRoot() + '/assets/' + this.componentNameLower() + '.coffee');
       this.template('component/assets/template.jade',        this.componentRoot() + '/assets/' + this.componentNameLower() + '.jade');
-      this.template('component/assets/stylesheet.sass',      this.componentRoot() + '/assets/' + this.componentNameLower() + '.sass');
+
+      if(this.shouldIncludeSass){
+        this.template('component/assets/stylesheet.sass',      this.componentRoot() + '/assets/_' + this.componentNameLower() + '.sass');
+      }
     }
     else{
       this.template('component/controller.coffee', this.componentRoot() + '/controller.coffee');

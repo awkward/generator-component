@@ -3,10 +3,8 @@ define '<%= componentNamespace() %>/controller', ['courier', '<%= componentNames
     initialize: (@options = {}) ->
 
     start: ->
-      view = new <%= componentNameCamelCased() %>View()
-      # do something with view
-      
-      console.log 'Route <%= componentName %> hit'
+      # 1. get some data
 
-    stop: ->
-      console.log 'tear down the <%= componentName %> controller'
+      # 2. render view
+      view = new <%= componentNameCamelCased() %>View()
+      # region.show(view)
